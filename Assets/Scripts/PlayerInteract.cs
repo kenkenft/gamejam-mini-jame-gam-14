@@ -8,7 +8,7 @@ public class PlayerInteract : MonoBehaviour
     public float pickUpCooldown = 0.3f, lastSuccessfulPressTime = 0f, currButtonPressTime = 0f;
     FlagProperties targetFlag;
 
-    public bool PickUp()
+    public bool PickUp(int levelState)
     {
         if(targetFlag != null)
         {
@@ -18,8 +18,10 @@ public class PlayerInteract : MonoBehaviour
             if((currButtonPressTime - lastSuccessfulPressTime > pickUpCooldown) && !targetFlag.GetIsPickedUp())
             {
                 lastSuccessfulPressTime = currButtonPressTime;
-                targetFlag.SetIsPickedUp(true);
-                targetFlag.RaiseFlagSprite(true);
+                {
+                    targetFlag.SetIsPickedUp(true);
+                    targetFlag.RaiseFlagSprite(true);
+                }
                 return true;
             }
         }
@@ -51,12 +53,14 @@ public class PlayerInteract : MonoBehaviour
             case("Exit00"):
             {
                 Debug.Log("Exit00 entered!");
+                gameObject.GetComponent<PlayerMain>().SetLevelState(1);
                 break;
             }
 
             case("Exit01"):
             {
                 Debug.Log("Exit01 entered!");
+                //SendMessageUpwards("TriggerEndgame");
                 break;
             }
 

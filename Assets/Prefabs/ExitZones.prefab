@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2501460424045209910}
   - component: {fileID: 6230868639420351190}
   m_Layer: 0
-  m_Name: Barrier
+  m_Name: Barrier00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -311,7 +311,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9145930143549649059}
   m_Layer: 0
-  m_Name: Zone01
+  m_Name: Zone00
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -347,7 +347,7 @@ GameObject:
   - component: {fileID: 4466689627817250620}
   - component: {fileID: 4967068445184615686}
   m_Layer: 0
-  m_Name: Barrier
+  m_Name: Barrier01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -645,7 +645,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1334366894159877231}
   m_Layer: 0
-  m_Name: Zone02
+  m_Name: Zone01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -679,8 +679,8 @@ GameObject:
   - component: {fileID: 91288413108286367}
   - component: {fileID: 5228638084169115976}
   m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
+  m_Name: Trigger00
+  m_TagString: Exit00
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -710,7 +710,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.5, y: 0.5}
@@ -772,6 +772,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ef146ef328994d4cbbd311a7e65c8a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoneBarriers:
+  - {fileID: 510395942378262228}
+  - {fileID: 1841736507540949505}
+  zoneTriggers: []
 --- !u!1 &8184270280430857876
 GameObject:
   m_ObjectHideFlags: 0
@@ -783,8 +787,8 @@ GameObject:
   - component: {fileID: 762161987527968203}
   - component: {fileID: 5538749922657745460}
   m_Layer: 0
-  m_Name: Trigger
-  m_TagString: Untagged
+  m_Name: Trigger01
+  m_TagString: Exit01
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -814,7 +818,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.5, y: 0.5}

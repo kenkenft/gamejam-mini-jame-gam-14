@@ -12,7 +12,7 @@ public class PlayerMain : MonoBehaviour
     SpriteRenderer playerSpriteRenderer;
     float horizontalSpeed = 0f;
     public GameObject playerSpawn;
-    int levelState = 0;
+    [SerializeField] int levelState = 0;
 
     // public Animator animator;
     AudioManager audioManager;
@@ -57,7 +57,7 @@ public class PlayerMain : MonoBehaviour
             // Need to figure out how to allow for 4 separate OR cases efficiently for the 4 trucks
             if( Input.GetKeyDown(KeyCode.A) && playerInteract.GetIsInteracting() )
             {
-                isInteracting = playerInteract.PickUp();
+                isInteracting = playerInteract.PickUp(levelState);
                 // audioManager.Play("PickUp");
                 if(isInteracting)
                 {
@@ -85,6 +85,12 @@ public class PlayerMain : MonoBehaviour
     public void SetIsPlaying(bool state)
     {
         isPlaying = state;
+    }
+
+    public void SetLevelState(int newLevelState)
+    {
+        levelState = newLevelState;
+        Debug.Log("Game state advanced to state: " + newLevelState);
     }
 
     // void OnCollisionEnter2D(Collision2D col)

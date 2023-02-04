@@ -31,6 +31,6 @@ public class FlagManager : MonoBehaviour
     {
         collectedFlagSequence.Add(flagID);
         if(collectedFlagSequence.Count >= totalFlags)
-            Debug.Log("All flags have been set!");
+            GetComponentInParent<GameManager>().UnlockExitZone(0);
     }
 }

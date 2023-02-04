@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ExitProperties : MonoBehaviour
 {
-    public GameObject[] zoneBarriers;
+    public GameObject[] zoneBarriers = new GameObject[2];
     public Collider2D[] zoneTriggers;
 
     public void SetUp()

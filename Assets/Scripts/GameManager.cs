@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     PlayerMain playerMain;
     UIManager uIManager;
     FlagManager flagManager;
+    ExitProperties exitProperties;
 
     // Start is called before the first frame update
     void Start()
@@ -18,9 +19,22 @@ public class GameManager : MonoBehaviour
 
         flagManager = GetComponentInChildren<FlagManager>();
         flagManager.SetUp();
+
+        exitProperties = GetComponentInChildren<ExitProperties>();
+        exitProperties.SetUp();
         // uIManager = GetComponentInChildren<UIManager>();
         // uIManager.SetUpUIRefs();
         // uIManager.ReturnToTitle();
+    }
+
+    public void UnlockExitZone(int exitZoneID)
+    {
+        exitProperties.DisableBarrier(exitZoneID);
+    }
+
+    public void AdvanceGameState()
+    {
+        playerMain.SetLevelState(1);
     }
 
     public void SetUpGame()
