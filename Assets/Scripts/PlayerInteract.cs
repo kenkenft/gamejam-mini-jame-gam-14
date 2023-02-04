@@ -20,13 +20,15 @@ public class PlayerInteract : MonoBehaviour
                 lastSuccessfulPressTime = currButtonPressTime;
                 if(levelState == 0 && !targetFlag.GetIsPickedUp())
                 {
-                    targetFlag.SetIsPickedUp(true);
-                    targetFlag.RaiseFlagSprite(true);
+                     Debug.Log("levelState == 0 && !targetFlag.GetIsPickedUp()");
+                    targetFlag.SetIsPickedUp(true, levelState);
+                    // targetFlag.RaiseFlagSprite(true);
                 }
                 else if(levelState == 1 && targetFlag.GetIsPickedUp())
                 {
-                    targetFlag.SetIsPickedUp(false);
-                    targetFlag.RaiseFlagSprite(false);
+                     Debug.Log("levelState == 1 && targetFlag.GetIsPickedUp()");
+                    targetFlag.SetIsPickedUp(false, levelState);
+                    // targetFlag.RaiseFlagSprite(false);
                 }
                 return true;
             }

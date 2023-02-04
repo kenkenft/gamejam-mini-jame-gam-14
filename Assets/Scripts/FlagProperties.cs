@@ -5,7 +5,7 @@ using UnityEngine;
 public class FlagProperties : MonoBehaviour
 {
     // bool[] isPickedUp = {false, false};
-    bool isPickedUp = false;
+    [SerializeField] bool isPickedUp = false;
     public int flagID, pointValue;
     GameObject flagMain;
     public FlagManager flagManager;
@@ -15,7 +15,7 @@ public class FlagProperties : MonoBehaviour
     {
         // isPickedUp[0] = false;
         // isPickedUp[1] = false;
-        // isPickedUp = false;
+        isPickedUp = false;
         flagID = assignedID;
         pointValue = initialValue;
         Transform[] allTransforms = GetComponentsInChildren<Transform>();
@@ -24,8 +24,36 @@ public class FlagProperties : MonoBehaviour
             if(transform.name == "FlagMain")
             {
                 flagMain = transform.gameObject;
-                SetIsPickedUp(false);
+                // SetIsPickedUp(false);
                 break;
+            }
+        }
+    }
+
+
+    // public void SetIsPickedUp(int levelState, bool state)
+    // {
+    //     isPickedUp[levelState] = state;
+    // }
+    public void SetIsPickedUp(bool isRaised, int levelState)
+    {
+        bool isCorrect = false;
+        if(!isPickedUp && levelState == 0)
+        {
+            Debug.Log("isPickedUp && levelState == 0");
+            flagManager.RecordFlagOrder(flagID);
+            RaiseFlagSprite(true);
+            isPickedUp = isRaised;
+
+        }
+        else if((isPickedUp && levelState == 1))
+        {
+            Debug.Log("!isPickedUp && levelState == 1");
+            isCorrect = flagManager.CheckReverseOrder(flagID);
+            if(isCorrect)
+            {    
+                RaiseFlagSprite(false);
+                isPickedUp = isRaised;
             }
         }
     }
@@ -38,17 +66,6 @@ public class FlagProperties : MonoBehaviour
             flagPosMask[1] = -0.57f;
             
         flagMain.transform.localPosition = flagPosMask;
-    }
-
-    // public void SetIsPickedUp(int levelState, bool state)
-    // {
-    //     isPickedUp[levelState] = state;
-    // }
-    public void SetIsPickedUp(bool state)
-    {
-        isPickedUp = state;
-        if(isPickedUp)
-            flagManager.RecordFlagOrder(flagID);
     }
 
     public bool GetIsPickedUp()

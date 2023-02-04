@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public void UnlockExitZone(int exitZoneID)
     {
         exitProperties.DisableBarrier(exitZoneID);
+        Debug.Log("Unlocked ExitZone: " + exitZoneID);
     }
 
     public void AdvanceGameState()
@@ -43,6 +44,12 @@ public class GameManager : MonoBehaviour
         playerMain.SetPlayerStartPos();
         uIManager.SetUpGameUI(200);
     }
+
+    // public void TriggerEndlevel()
+    // {
+
+    // }
+
 
     public void TriggerEndgame()
     {
