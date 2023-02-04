@@ -48,6 +48,9 @@
      <Compile Include="Assets\Scripts\PlayerOverlay.cs" />
      <Compile Include="Assets\Scripts\Timer.cs" />
      <Compile Include="Assets\Scripts\ScoreTextProperties.cs" />
+     <Compile Include="Assets\Scripts\FlagProperties.cs" />
+     <Compile Include="Assets\Scripts\FlagManager.cs" />
+     <Compile Include="Assets\Scripts\FlagPoolProperties.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

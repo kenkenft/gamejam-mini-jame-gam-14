@@ -37,7 +37,7 @@ public class PlayerInteract : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("Crop"))
+        if(col.gameObject.CompareTag("Flag"))
         {
             isPicking = true;
             // targetCrop = col.GetComponentInParent<CropProperties>();
@@ -47,7 +47,7 @@ public class PlayerInteract : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if(col.gameObject.tag == "Crop")
+        if(col.gameObject.tag == "Flag")
         {
             isPicking = false;
             // targetCrop = null;
