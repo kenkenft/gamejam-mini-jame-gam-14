@@ -8,6 +8,7 @@ public class FlagProperties : MonoBehaviour
     bool isPickedUp = false;
     public int flagID, pointValue;
     GameObject flagMain;
+    public FlagManager flagManager;
     Vector3 mask = new Vector3(0.27f,0f,0f);
 
     public void SetUp(int assignedID, int initialValue)
@@ -51,6 +52,11 @@ public class FlagProperties : MonoBehaviour
     public bool GetIsPickedUp()
     {
         return isPickedUp;
+    }
+
+    public void SetFlagManager(FlagManager instance)
+    {
+        flagManager = instance;
     }
 
 }

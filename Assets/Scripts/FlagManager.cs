@@ -14,7 +14,10 @@ public class FlagManager : MonoBehaviour
         for(int i = 0; i < flagsPositions.Length; i++)
         {
             GameObject flagInstance = Instantiate(flagPrefab, flagsPositions[i].position, flagsPositions[i].rotation, flagsPositions[i]);
-            flagInstance.GetComponent<FlagProperties>().SetUp(i, pointValuesStart[i]);
+            
+            flagProperties = flagInstance.GetComponent<FlagProperties>();
+            flagProperties.SetUp(i, pointValuesStart[i]);
+            flagProperties.SetFlagManager(this);
             // flagInfoList.Add(fruitInfoInstance);
         }
     } 
