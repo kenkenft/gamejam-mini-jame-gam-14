@@ -4,43 +4,44 @@ using UnityEngine;
 
 public class PlayerInteract : MonoBehaviour
 {
-    public bool isPicking = false;
+    bool isInteracting = false;
     public float pickUpCooldown = 0.3f, lastSuccessfulPressTime = 0f, currButtonPressTime = 0f;
+    FlagProperties targetFlag;
 
-
-    public bool Harvest()
+    public bool PickUp()
     {
-        // if(targetCrop != null)
-        // {
-        //     // currButtonPressTime = Time.time;
-        //     // if((currButtonPressTime - lastSuccessfulPressTime > harvestCooldown) 
-        //     //     && targetCrop.CheckHarvestable())
-        //     if(targetCrop.CheckHarvestable())
-        //     {
-        //         // lastSuccessfulPressTime = currButtonPressTime;
-        //         harvestProgress = targetCrop.HarvestFruit(harvestPower);
-        //         if(harvestProgress >= 100)
-        //             return true;
-        //     }
-        // }
-        // else
-        //     Debug.Log("Can't use harvest action yet!");
+        if(targetFlag != null)
+        {
+            currButtonPressTime = Time.time;
+
+            // if(targetFlag.GetIsPickedUp())
+            if((currButtonPressTime - lastSuccessfulPressTime > pickUpCooldown) && !targetFlag.GetIsPickedUp())
+            {
+                lastSuccessfulPressTime = currButtonPressTime;
+                targetFlag.SetIsPickedUp(true);
+                targetFlag.RaiseFlag(true);
+                return true;
+            }
+        }
+        else
+            Debug.Log("Not near a flag!");
 
         return false;
         
     }
 
-    // public int CheckHarvestedFruitType()
-    // {
-    //     return targetCrop.GetCurrentFruitType();
-    // }
+    public bool GetIsInteracting()
+    {
+        return isInteracting;
+    }
+
 
     void OnTriggerEnter2D(Collider2D col)
     {
         if(col.gameObject.CompareTag("Flag"))
         {
-            isPicking = true;
-            // targetCrop = col.GetComponentInParent<CropProperties>();
+            isInteracting = true;
+            targetFlag = col.GetComponentInParent<FlagProperties>();
             // Debug.Log("Entered crop harvest radius");
         }
     }
@@ -49,8 +50,8 @@ public class PlayerInteract : MonoBehaviour
     {
         if(col.gameObject.tag == "Flag")
         {
-            isPicking = false;
-            // targetCrop = null;
+            isInteracting = false;
+            targetFlag = null;
             // Debug.Log("Exited crop harvest radius");
         }
     }

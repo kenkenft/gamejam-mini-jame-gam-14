@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     
     PlayerMain playerMain;
     UIManager uIManager;
+    FlagManager flagManager;
 
     // Start is called before the first frame update
     void Start()
@@ -14,6 +15,9 @@ public class GameManager : MonoBehaviour
         playerMain = GetComponentInChildren<PlayerMain>();
         playerMain.SetUp();
         playerMain.SetIsPlaying(true);
+
+        flagManager = GetComponentInChildren<FlagManager>();
+        flagManager.SetUp();
         // uIManager = GetComponentInChildren<UIManager>();
         // uIManager.SetUpUIRefs();
         // uIManager.ReturnToTitle();

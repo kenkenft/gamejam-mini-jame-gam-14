@@ -4,15 +4,18 @@ using UnityEngine;
 
 public class FlagManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject flagPrefab;
+    public Transform[] flagsPositions;
+    FlagProperties flagProperties;
+    int[] pointValuesStart = {100, 200, 300, 400, 500, 600, 700};
 
-    // Update is called once per frame
-    void Update()
+    public void SetUp()
     {
-        
-    }
+        for(int i = 0; i < flagsPositions.Length; i++)
+        {
+            GameObject flagInstance = Instantiate(flagPrefab, flagsPositions[i].position, flagsPositions[i].rotation, flagsPositions[i]);
+            flagInstance.GetComponent<FlagProperties>().SetUp(i, pointValuesStart[i]);
+            // flagInfoList.Add(fruitInfoInstance);
+        }
+    } 
 }

@@ -53,18 +53,16 @@ public class PlayerMain : MonoBehaviour
             playerMove.VelocityDecay();
 
             // Need to figure out how to allow for 4 separate OR cases efficiently for the 4 trucks
-            // if((Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.S))
-            // ||Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.F) 
-            // && playerInteract.isInteracting)
-            // {
-            //     isInteracting = playerInteract.PickUp();
-            //     // audioManager.Play("PickUp");
-            //     if(isInteracting)
-            //     {
-            //         // Debug.Log("Crop harvested! Sending to Truck: " + Input.inputString);
-            //         // uiManager.UpdateTruck(Input.inputString, playerInteract.CheckHarvestedFruitType());
-            //     }
-            // }
+            if( Input.GetKeyDown(KeyCode.A) && playerInteract.GetIsInteracting() )
+            {
+                isInteracting = playerInteract.PickUp();
+                // audioManager.Play("PickUp");
+                if(isInteracting)
+                {
+                    Debug.Log("Flag Raised!");
+                    // uiManager.UpdateTruck(Input.inputString, playerInteract.CheckHarvestedFruitType());
+                }
+            }
         }
     }
 
