@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Flag
+  - Exit00
+  - Exit01
   layers:
   - Default
   - TransparentFX

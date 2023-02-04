@@ -38,12 +38,37 @@ public class PlayerInteract : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(col.gameObject.CompareTag("Flag"))
+        switch(col.tag)
         {
-            isInteracting = true;
-            targetFlag = col.GetComponentInParent<FlagProperties>();
-            // Debug.Log("Entered crop harvest radius");
+            case("Flag"):
+            {
+                isInteracting = true;
+                targetFlag = col.GetComponentInParent<FlagProperties>();
+                // Debug.Log("Entered crop harvest radius");
+                break;
+            }
+
+            case("Exit00"):
+            {
+                Debug.Log("Exit00 entered!");
+                break;
+            }
+
+            case("Exit01"):
+            {
+                Debug.Log("Exit01 entered!");
+                break;
+            }
+
+            default:
+                break;
         }
+        // if(col.gameObject.CompareTag("Flag"))
+        // {
+        //     isInteracting = true;
+        //     targetFlag = col.GetComponentInParent<FlagProperties>();
+        //     // Debug.Log("Entered crop harvest radius");
+        // }
     }
 
     void OnTriggerExit2D(Collider2D col)

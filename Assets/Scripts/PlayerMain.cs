@@ -12,12 +12,14 @@ public class PlayerMain : MonoBehaviour
     SpriteRenderer playerSpriteRenderer;
     float horizontalSpeed = 0f;
     public GameObject playerSpawn;
+    int levelState = 0;
 
     // public Animator animator;
     AudioManager audioManager;
 
     public void SetUp()
     {
+        levelState = 0;
         playerMove = GetComponent<PlayerMove>();
         playerMove.SetUp();
         playerInteract = GetComponent<PlayerInteract>();
