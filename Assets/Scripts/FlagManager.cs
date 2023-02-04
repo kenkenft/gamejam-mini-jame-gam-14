@@ -7,6 +7,7 @@ public class FlagManager : MonoBehaviour
     public GameObject flagPrefab;
     public Transform[] flagsPositions;
     FlagProperties flagProperties;
+    [SerializeField] List<int> collectedFlagSequence = new List<int>{};
     int[] pointValuesStart = {100, 200, 300, 400, 500, 600, 700};
 
     public void SetUp()
@@ -21,4 +22,9 @@ public class FlagManager : MonoBehaviour
             // flagInfoList.Add(fruitInfoInstance);
         }
     } 
+
+    public void RecordFlagOrder(int flagID)
+    {
+        collectedFlagSequence.Add(flagID);
+    }
 }

@@ -19,7 +19,7 @@ public class PlayerInteract : MonoBehaviour
             {
                 lastSuccessfulPressTime = currButtonPressTime;
                 targetFlag.SetIsPickedUp(true);
-                targetFlag.RaiseFlag(true);
+                targetFlag.RaiseFlagSprite(true);
                 return true;
             }
         }

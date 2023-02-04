@@ -9,13 +9,13 @@ public class FlagProperties : MonoBehaviour
     public int flagID, pointValue;
     GameObject flagMain;
     public FlagManager flagManager;
-    Vector3 mask = new Vector3(0.27f,0f,0f);
+    Vector3 flagPosMask = new Vector3(0.27f,0f,0f);
 
     public void SetUp(int assignedID, int initialValue)
     {
         // isPickedUp[0] = false;
         // isPickedUp[1] = false;
-        isPickedUp = false;
+        // isPickedUp = false;
         flagID = assignedID;
         pointValue = initialValue;
         Transform[] allTransforms = GetComponentsInChildren<Transform>();
@@ -30,14 +30,14 @@ public class FlagProperties : MonoBehaviour
         }
     }
 
-    public void RaiseFlag(bool isRaising)
+    public void RaiseFlagSprite(bool isRaising)
     {
         if(isRaising)
-            mask[1] = -0.07f;
+            flagPosMask[1] = -0.07f;
         else
-            mask[1] = -0.57f;
+            flagPosMask[1] = -0.57f;
             
-        flagMain.transform.localPosition = mask;
+        flagMain.transform.localPosition = flagPosMask;
     }
 
     // public void SetIsPickedUp(int levelState, bool state)
@@ -47,6 +47,8 @@ public class FlagProperties : MonoBehaviour
     public void SetIsPickedUp(bool state)
     {
         isPickedUp = state;
+        if(isPickedUp)
+            flagManager.RecordFlagOrder(flagID);
     }
 
     public bool GetIsPickedUp()
