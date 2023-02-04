@@ -20,13 +20,13 @@ public class PlayerInteract : MonoBehaviour
                 lastSuccessfulPressTime = currButtonPressTime;
                 if(levelState == 0 && !targetFlag.GetIsPickedUp())
                 {
-                     Debug.Log("levelState == 0 && !targetFlag.GetIsPickedUp()");
+                    //  Debug.Log("levelState == 0 && !targetFlag.GetIsPickedUp()");
                     targetFlag.SetIsPickedUp(true, levelState);
                     // targetFlag.RaiseFlagSprite(true);
                 }
                 else if(levelState == 1 && targetFlag.GetIsPickedUp())
                 {
-                     Debug.Log("levelState == 1 && targetFlag.GetIsPickedUp()");
+                    //  Debug.Log("levelState == 1 && targetFlag.GetIsPickedUp()");
                     targetFlag.SetIsPickedUp(false, levelState);
                     // targetFlag.RaiseFlagSprite(false);
                 }
@@ -62,13 +62,14 @@ public class PlayerInteract : MonoBehaviour
             {
                 Debug.Log("Exit00 entered!");
                 gameObject.GetComponent<PlayerMain>().SetLevelState(1);
+                col.gameObject.SetActive(false);
                 break;
             }
 
             case("Exit01"):
             {
                 Debug.Log("Exit01 entered!");
-                //SendMessageUpwards("TriggerEndgame");
+                gameObject.GetComponentInParent<GameManager>().TriggerEndLevel();
                 break;
             }
 

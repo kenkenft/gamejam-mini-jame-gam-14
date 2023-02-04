@@ -45,10 +45,10 @@ public class GameManager : MonoBehaviour
         uIManager.SetUpGameUI(200);
     }
 
-    // public void TriggerEndlevel()
-    // {
-
-    // }
+    public void TriggerEndLevel()
+    {
+        Debug.Log("EndLevel Tirggered!");
+    }
 
 
     public void TriggerEndgame()
