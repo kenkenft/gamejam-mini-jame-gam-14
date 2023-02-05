@@ -61,6 +61,7 @@ public class FlagManager : MonoBehaviour
 
     public void ModifyScore(int pointValue)
     {
-        gameDataProperties.SetPlayerScore(pointValue);
+        gameDataProperties.UpdateLevelScore(pointValue);
+        gameManager.UpdatePlayerOverlay();
     }
 }

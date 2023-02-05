@@ -59,11 +59,6 @@ public class PlayerMain : MonoBehaviour
             {
                 isInteracting = playerInteract.PickUp(levelState);
                 // audioManager.Play("PickUp");
-                // if(isInteracting)
-                // {
-                //     Debug.Log("Flag Raised!");
-                //     // uiManager.UpdateTruck(Input.inputString, playerInteract.CheckHarvestedFruitType());
-                // }
             }
         }
     }

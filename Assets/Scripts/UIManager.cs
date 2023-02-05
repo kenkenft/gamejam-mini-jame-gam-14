@@ -7,30 +7,49 @@ public class UIManager : MonoBehaviour
     PlayerOverlay playerOverlay;
     UIEndgame uIEndgame;
     UITitle uITitle;
+    UIEndLevel uIEndLevel;
     AudioManager audioManager;  
+    GameDataProperties gameDataProperties;
 
 
     
-    public void SetUpUIRefs()
+    public void SetUpUIRefs(GameDataProperties instance)
     {
-        
+        gameDataProperties = instance;
+        uIEndLevel = GetComponentInChildren<UIEndLevel>();
+        if(uIEndLevel != null)
+        {
+            uIEndLevel.SetUp();
+            uIEndLevel.ToggleEndLevelCanvas(false);
+        }
         playerOverlay = GetComponentInChildren<PlayerOverlay>();
         playerOverlay.SetUp();
-        uIEndgame = GetComponentInChildren<UIEndgame>();
-        uIEndgame.SetUp();
-        uITitle = GetComponentInChildren<UITitle>();
-        uITitle.SetUp();
+        // uIEndgame = GetComponentInChildren<UIEndgame>();
+        // uIEndgame.SetUp();
+        // uITitle = GetComponentInChildren<UITitle>();
+        // uITitle.SetUp();
         audioManager = GetComponentInParent<AudioManager>();
 
     }
 
+    public void TriggerEndLevelUI()
+    {
+        // playerOverlay.TogglePlayerOverlayCanvas(false);
+        uIEndLevel.ToggleEndLevelCanvas(true);
+
+    }
+
+    public void UpdatePlayerOverlay()
+    {
+        playerOverlay.UpdatePlayerOverlay(gameDataProperties.GetLevelScore());
+    }
 
     public void TriggerEndgameUI()
     {
         // playerMain.SetIsPlaying(false);
         playerOverlay.TogglePlayerOverlayCanvas(false);
         uIEndgame.ToggleEndgameCanvas(true);
-        uIEndgame.SetPlayerScoreText(playerOverlay.GetFinalScore());
+        uIEndgame.SetPlayerScoreText(gameDataProperties.GetLevelScore());
         uIEndgame.SetTotalTime(playerOverlay.GetTotalTime());
         audioManager.Play("Endgame");
     }

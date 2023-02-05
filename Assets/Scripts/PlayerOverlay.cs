@@ -1,54 +1,50 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// using TMPro;
+using UnityEngine.UI;
 
 public class PlayerOverlay : MonoBehaviour
 {
-    public GameObject[] trucks = new GameObject[4];
-    ScoreTextProperties scoreTextProperties;
+    // ScoreTextProperties scoreTextProperties;
     Timer timer;
+    Text levelScoreText;
     Canvas playerOverlayCanvas;
-    int fillAmount = 1;
     bool isAdding = false;
-    List<int> deliveredFruitsList = new List<int>{};
     AudioManager audioManager;  
 
 
     public void SetUp()
     {
         playerOverlayCanvas = GetComponentInChildren<Canvas>();
+        Text[] allTexts = GetComponentsInChildren<Text>();
         
-        scoreTextProperties = GetComponentInChildren<ScoreTextProperties>();
+        foreach(Text text in allTexts)
+        {
+            if(text.name == "ScoreText")
+                levelScoreText = text;
+        }
+        
+        // scoreTextProperties = GetComponentInChildren<ScoreTextProperties>();
         timer = GetComponentInChildren<Timer>();
         
         
-        audioManager = GetComponentInParent<AudioManager>();
+        // audioManager = GetComponentInParent<AudioManager>();
 
     }
 
     public void ResetOverlay()
     {
-        scoreTextProperties.ResetScore();
+        // scoreTextProperties.ResetScore();
+        levelScoreText.text = "Score: 0";
         timer.ResetTotalTime();
     }
 
 
-    char ParseHarvestCharacter(string stringInput)
-    {
-        char parsedString = 'a';
-        foreach(char letter in stringInput)
-        {
-            if(letter.Equals('a') || letter.Equals('s') || letter.Equals('d') || letter.Equals('f'))
-                parsedString = letter;
-        }
-        return parsedString;
-    }
 
-
-    public int GetFinalScore()
+    public void UpdatePlayerOverlay(int levelScore)
     {
-        return scoreTextProperties.GetCurrentScore();
+        // scoreTextProperties.UpdateScore(levelScore)
+        levelScoreText.text = "Score: " + levelScore;
     }
 
 

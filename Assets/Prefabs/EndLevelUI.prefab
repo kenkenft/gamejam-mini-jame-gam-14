@@ -1241,6 +1241,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04775ab126b736646959e9591cc3aa43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fruitInfo: {fileID: 0}
+  fruitDeliveredBreakdown: {fileID: 0}
 --- !u!1 &192016191553159995
 GameObject:
   m_ObjectHideFlags: 0

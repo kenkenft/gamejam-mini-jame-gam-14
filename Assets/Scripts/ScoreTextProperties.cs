@@ -14,9 +14,9 @@ public class ScoreTextProperties : MonoBehaviour
         scoreText.text = "Score: " + currentScore;
     }
 
-    public void UpdateScore(int truckScore)
+    public void UpdateScore(int score)
     {
-        currentScore += truckScore;
+        currentScore += score;
         scoreText.text = "Score: " + currentScore;
     }
 

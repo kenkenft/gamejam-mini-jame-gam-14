@@ -24,8 +24,9 @@ public class GameManager : MonoBehaviour
 
         exitProperties = GetComponentInChildren<ExitProperties>();
         exitProperties.SetUp();
-        // uIManager = GetComponentInChildren<UIManager>();
-        // uIManager.SetUpUIRefs();
+
+        uIManager = GetComponentInChildren<UIManager>();
+        uIManager.SetUpUIRefs(gameDataProperties);
         // uIManager.ReturnToTitle();
     }
 
@@ -38,6 +39,11 @@ public class GameManager : MonoBehaviour
     public void AdvanceGameState()
     {
         playerMain.SetLevelState(1);
+    }
+
+    public void UpdatePlayerOverlay()
+    {
+        uIManager.UpdatePlayerOverlay();
     }
 
     public void SetUpGame()

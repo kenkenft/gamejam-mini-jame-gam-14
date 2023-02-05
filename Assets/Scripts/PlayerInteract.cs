@@ -19,17 +19,10 @@ public class PlayerInteract : MonoBehaviour
             {
                 lastSuccessfulPressTime = currButtonPressTime;
                 if(levelState == 0 && !targetFlag.GetIsPickedUp())
-                {
-                    //  Debug.Log("levelState == 0 && !targetFlag.GetIsPickedUp()");
                     targetFlag.SetIsPickedUp(true, levelState);
-                    // targetFlag.RaiseFlagSprite(true);
-                }
                 else if(levelState == 1 && targetFlag.GetIsPickedUp())
-                {
-                    //  Debug.Log("levelState == 1 && targetFlag.GetIsPickedUp()");
                     targetFlag.SetIsPickedUp(false, levelState);
-                    // targetFlag.RaiseFlagSprite(false);
-                }
+                    
                 return true;
             }
         }
@@ -54,13 +47,11 @@ public class PlayerInteract : MonoBehaviour
             {
                 isInteracting = true;
                 targetFlag = col.GetComponentInParent<FlagProperties>();
-                // Debug.Log("Entered crop harvest radius");
                 break;
             }
 
             case("Exit00"):
             {
-                // Debug.Log("Exit00 entered!");
                 gameObject.GetComponent<PlayerMain>().SetLevelState(1);
                 col.gameObject.SetActive(false);
                 break;
@@ -68,7 +59,6 @@ public class PlayerInteract : MonoBehaviour
 
             case("Exit01"):
             {
-                // Debug.Log("Exit01 entered!");
                 gameObject.GetComponentInParent<GameManager>().TriggerEndLevel();
                 break;
             }
@@ -76,12 +66,6 @@ public class PlayerInteract : MonoBehaviour
             default:
                 break;
         }
-        // if(col.gameObject.CompareTag("Flag"))
-        // {
-        //     isInteracting = true;
-        //     targetFlag = col.GetComponentInParent<FlagProperties>();
-        //     // Debug.Log("Entered crop harvest radius");
-        // }
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -90,7 +74,6 @@ public class PlayerInteract : MonoBehaviour
         {
             isInteracting = false;
             targetFlag = null;
-            // Debug.Log("Exited crop harvest radius");
         }
     }
 }
