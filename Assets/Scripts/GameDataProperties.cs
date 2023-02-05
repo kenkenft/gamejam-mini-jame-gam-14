@@ -10,6 +10,16 @@ public class GameDataProperties : ScriptableObject
                          totalTime, levelTime, 
                          totalMistakes, levelMistakes;
 
+    void OnEnable()
+    {
+        // ResetGameDataProperties(); // If data is not saving between scenes, it could be this line
+    }
+
+    void OnDisable()
+    {
+        ResetGameDataProperties(); // If data is not saving between scenes, it could be this line
+    }
+    
     public void SetTargetStageID(int targetID)
     {
         targetStageID = targetID;
