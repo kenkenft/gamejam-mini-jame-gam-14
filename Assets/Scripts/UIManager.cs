@@ -89,8 +89,9 @@ public class UIManager : MonoBehaviour
         audioManager.Play("ButtonClick");
     }
 
-    public void LoadLevel()
+    public void LoadLevel(int targetID)
     {
+        gameDataProperties.UpdateGameData(targetID, "targetStageID");
         SceneManager.LoadScene(gameDataProperties.GetGameData("targetStageID"));
     }
 

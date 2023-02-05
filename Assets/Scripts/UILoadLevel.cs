@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class UILoadLevel : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public int targetScene;
 
-    // Update is called once per frame
-    void Update()
+    public void GoToThisScene()
     {
-        
+        GetComponentInParent<UIManager>().LoadLevel(targetScene);
     }
 }
