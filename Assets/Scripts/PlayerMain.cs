@@ -73,7 +73,7 @@ public class PlayerMain : MonoBehaviour
 
     public void SetPlayerStartPos()
     {
-        // gameObject.transform.position = playerStartPos;
+        gameObject.transform.position = playerStartPos;
         gameObject.transform.position = playerSpawn.transform.position;
     }
 

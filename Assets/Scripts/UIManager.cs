@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class UIManager : MonoBehaviour
 {
@@ -85,6 +87,11 @@ public class UIManager : MonoBehaviour
     {
         uITitle.SwitchTitleInstructionScreens();
         audioManager.Play("ButtonClick");
+    }
+
+    public void LoadLevel()
+    {
+        SceneManager.LoadScene(gameDataProperties.GetGameData("targetStageID"));
     }
 
 }

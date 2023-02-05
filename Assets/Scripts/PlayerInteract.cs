@@ -53,7 +53,8 @@ public class PlayerInteract : MonoBehaviour
             case("Exit00"):
             {
                 gameObject.GetComponent<PlayerMain>().SetLevelState(1);
-                col.gameObject.SetActive(false);
+                // col.gameObject.SetActive(false);
+                gameObject.GetComponentInParent<GameManager>().DisableGroundStateZero();
                 break;
             }
 

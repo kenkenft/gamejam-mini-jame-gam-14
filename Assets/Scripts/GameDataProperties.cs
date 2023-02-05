@@ -29,6 +29,8 @@ public class GameDataProperties : ScriptableObject
     {
         switch(targetData)
         {
+            case "targetStageID":
+                return targetStageID;
             case "levelScore":
                 return levelScore;
             case "totalScore":
@@ -50,6 +52,11 @@ public class GameDataProperties : ScriptableObject
     {
         switch(targetData)
         {
+            case "targetStageID":
+            {
+                targetStageID = value;
+                break;
+            }
             case "levelScore":
             {
                 levelScore += value;

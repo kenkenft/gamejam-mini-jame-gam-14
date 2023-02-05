@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     FlagManager flagManager;
     ExitProperties exitProperties;
     Timer timer;
+    public GameObject groundStateZero;
 
     public GameDataProperties gameDataProperties;
 
@@ -38,6 +39,12 @@ public class GameManager : MonoBehaviour
     {
         exitProperties.DisableBarrier(exitZoneID);
         // Debug.Log("Unlocked ExitZone: " + exitZoneID);
+    }
+
+    public void DisableGroundStateZero()
+    {
+        if(groundStateZero != null)
+            groundStateZero.SetActive(false);
     }
 
     public void AdvanceGameState()
