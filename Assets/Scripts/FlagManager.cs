@@ -54,14 +54,14 @@ public class FlagManager : MonoBehaviour
             // Debug.Log("Correct flag picked up!");
             return true;
         }
-
+        gameDataProperties.UpdateGameData(1, "levelMistakes");
         // Debug.Log("Wrong flag picked up! Pick up flag: " + collectedFlagSequence[totalFlags - 1]);
         return false;
     }
 
     public void ModifyScore(int pointValue)
     {
-        gameDataProperties.UpdateLevelScore(pointValue);
+        gameDataProperties.UpdateGameData(pointValue, "levelScore");
         gameManager.UpdatePlayerOverlay();
     }
 }

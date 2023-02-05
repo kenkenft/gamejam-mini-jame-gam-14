@@ -34,14 +34,17 @@ public class UIManager : MonoBehaviour
 
     public void TriggerEndLevelUI()
     {
-        // playerOverlay.TogglePlayerOverlayCanvas(false);
+        playerOverlay.TogglePlayerOverlayCanvas(false);
         uIEndLevel.ToggleEndLevelCanvas(true);
-
+        uIEndLevel.SetLevelScoreText(gameDataProperties.GetGameData("levelScore"));
+        uIEndLevel.SetTotalScoreText(gameDataProperties.GetGameData("totalScore"));
+        uIEndLevel.SetTotalTime(gameDataProperties.GetGameData("levelTime"));
+        uIEndLevel.SetLevelMistakesText(gameDataProperties.GetGameData("levelMistakes"));
     }
 
     public void UpdatePlayerOverlay()
     {
-        playerOverlay.UpdatePlayerOverlay(gameDataProperties.GetLevelScore());
+        playerOverlay.UpdatePlayerOverlay(gameDataProperties.GetGameData("levelScore"));
     }
 
     public void TriggerEndgameUI()
@@ -49,8 +52,10 @@ public class UIManager : MonoBehaviour
         // playerMain.SetIsPlaying(false);
         playerOverlay.TogglePlayerOverlayCanvas(false);
         uIEndgame.ToggleEndgameCanvas(true);
-        uIEndgame.SetPlayerScoreText(gameDataProperties.GetLevelScore());
-        uIEndgame.SetTotalTime(playerOverlay.GetTotalTime());
+        uIEndgame.SetPlayerScoreText(gameDataProperties.GetGameData("totalScore"));
+        uIEndgame.SetTotalTime(gameDataProperties.GetGameData("totalTime"));
+        // uIEndgame.SetTotalMistakes(gameDataProperties.GetGameData("totalMistakes"));
+
         audioManager.Play("Endgame");
     }
 

@@ -25,14 +25,64 @@ public class GameDataProperties : ScriptableObject
         targetStageID = targetID;
     }
 
-    public void UpdateLevelScore(int score)
+    public int GetGameData(string targetData)
     {
-        levelScore += score;
+        switch(targetData)
+        {
+            case "levelScore":
+                return levelScore;
+            case "totalScore":
+                return totalScore;
+            case "levelTime":
+                return levelTime;
+            case "totalTime":
+                return totalTime;
+            case "levelMistakes":
+                return levelMistakes;
+            case "totalMistakes":
+                return totalMistakes;
+            default:
+                return 0;
+        }
     }
 
-    public int GetLevelScore()
+    public void UpdateGameData(int value ,string targetData)
     {
-        return levelScore;
+        switch(targetData)
+        {
+            case "levelScore":
+            {
+                levelScore += value;
+                break;
+            }
+            case "totalScore":
+            {
+                totalScore += levelScore;
+                break;
+            }
+            case "levelTime":
+            {
+                levelTime += value;
+                break;
+            }
+            case "totalTime":
+            {
+                totalTime += value;
+                break;
+            }
+            case "levelMistakes":
+            {
+                levelMistakes += value;
+                break;
+            }
+            case "totalMistakes":
+            {
+                totalMistakes += value;
+                break;
+            }
+            default:
+                break;
+        }
     }
 
     public void UpdateTotalScore(int score)

@@ -56,6 +56,12 @@ public class GameManager : MonoBehaviour
     public void TriggerEndLevel()
     {
         Debug.Log("EndLevel Tirggered!");
+        gameDataProperties.UpdateGameData(0, "totalScore");
+        gameDataProperties.UpdateGameData(0, "totalMistakes");
+        gameDataProperties.UpdateGameData(0, "totalTime");
+        
+
+        uIManager.TriggerEndLevelUI();
     }
 
 
