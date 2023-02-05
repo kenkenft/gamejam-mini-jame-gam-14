@@ -55,6 +55,7 @@
      <Compile Include="Assets\Scripts\LevelProperties.cs" />
      <Compile Include="Assets\Scripts\PlayerProperties.cs" />
      <Compile Include="Assets\Scripts\GameDataProperties.cs" />
+     <Compile Include="Assets\Scripts\UIEndLevel.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
