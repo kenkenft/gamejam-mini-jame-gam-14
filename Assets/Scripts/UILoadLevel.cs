@@ -5,9 +5,10 @@ using UnityEngine;
 public class UILoadLevel : MonoBehaviour
 {
     public int targetScene;
+    public bool isFinalLevel = false;
 
     public void GoToThisScene()
     {
-        GetComponentInParent<UIManager>().LoadLevel(targetScene);
+        GetComponentInParent<UIManager>().LoadLevel(targetScene, isFinalLevel);
     }
 }

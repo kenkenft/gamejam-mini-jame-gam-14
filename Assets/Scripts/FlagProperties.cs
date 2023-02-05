@@ -10,6 +10,7 @@ public class FlagProperties : MonoBehaviour
     GameObject flagMain;
     public FlagManager flagManager;
     Vector3 flagPosMask = new Vector3(0.27f,0f,0f);
+    AudioManager audioManager;
 
     public void SetUp(int assignedID, int initialValue)
     {
@@ -28,6 +29,7 @@ public class FlagProperties : MonoBehaviour
                 break;
             }
         }
+        audioManager = GetComponentInParent<AudioManager>();
     }
 
 
@@ -46,6 +48,7 @@ public class FlagProperties : MonoBehaviour
             flagManager.ModifyScore(pointValue);
 
             isPickedUp = isRaised;
+            audioManager.Play("Interact");
 
         }
         else if((isPickedUp && levelState == 1))
@@ -56,10 +59,12 @@ public class FlagProperties : MonoBehaviour
             {    
                 RaiseFlagSprite(false);
                 isPickedUp = isRaised;
+                audioManager.Play("Interact");
             }
             else
             {
                 flagManager.ModifyScore(-1 * pointValue);
+                audioManager.Play("Wrong");
             }
         }
     }

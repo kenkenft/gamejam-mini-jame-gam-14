@@ -27,11 +27,17 @@ public class UIManager : MonoBehaviour
             uIEndLevel.ToggleEndLevelCanvas(false);
         }
         playerOverlay = GetComponentInChildren<PlayerOverlay>();
-        playerOverlay.SetUp();
+        if(playerOverlay != null)
+        {
+            playerOverlay.SetUp();
+        }
         // uIEndgame = GetComponentInChildren<UIEndgame>();
         // uIEndgame.SetUp();
-        // uITitle = GetComponentInChildren<UITitle>();
-        // uITitle.SetUp();
+
+        uITitle = GetComponentInChildren<UITitle>();
+        if(uITitle != null)
+           uITitle.SetUp();
+        
         audioManager = GetComponentInParent<AudioManager>();
 
     }
@@ -44,6 +50,7 @@ public class UIManager : MonoBehaviour
         uIEndLevel.SetTotalScoreText(gameDataProperties.GetGameData("totalScore"));
         uIEndLevel.SetTotalTime(gameDataProperties.GetGameData("levelTime"));
         uIEndLevel.SetLevelMistakesText(gameDataProperties.GetGameData("levelMistakes"));
+        audioManager.Play("Endgame");
     }
 
     public void UpdatePlayerOverlay()
@@ -91,10 +98,14 @@ public class UIManager : MonoBehaviour
         audioManager.Play("ButtonClick");
     }
 
-    public void LoadLevel(int targetID)
+    public void LoadLevel(int targetID, bool isFinalLevel)
     {
+        audioManager.Play("ButtonClick");
         gameDataProperties.UpdateGameData(targetID, "targetStageID");
-        SceneManager.LoadScene(gameDataProperties.GetGameData("targetStageID"));
+        if(!isFinalLevel)
+            SceneManager.LoadScene(gameDataProperties.GetGameData("targetStageID"));
+        else
+            SceneManager.LoadScene(0);
     }
 
 }

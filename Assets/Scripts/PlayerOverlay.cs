@@ -9,7 +9,6 @@ public class PlayerOverlay : MonoBehaviour
     // Timer timer;
     Text levelScoreText;
     Canvas playerOverlayCanvas;
-    bool isAdding = false;
     AudioManager audioManager;  
 
 

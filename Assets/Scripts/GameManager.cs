@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         if(flagManager != null)
             flagManager.SetUp(gameDataProperties);
         
-        // uIManager.ReturnToTitle();
+        uIManager.ReturnToTitle();
     }
 
     public void UnlockExitZone(int exitZoneID)
@@ -76,7 +76,8 @@ public class GameManager : MonoBehaviour
 
     public void TriggerEndLevel()
     {
-        Debug.Log("EndLevel Triggered!");
+        // Debug.Log("EndLevel Triggered!");
+        StopAllCoroutines();
         gameDataProperties.UpdateGameData(timer.GetTotalTime(), "levelTime");
         gameDataProperties.UpdateGameData(0, "totalScore");
         gameDataProperties.UpdateGameData(0, "totalMistakes");

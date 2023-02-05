@@ -75,7 +75,7 @@ public class GameDataProperties : ScriptableObject
             }
             case "totalTime":
             {
-                totalTime += value;
+                totalTime += levelTime;
                 break;
             }
             case "levelMistakes":
@@ -85,7 +85,7 @@ public class GameDataProperties : ScriptableObject
             }
             case "totalMistakes":
             {
-                totalMistakes += value;
+                totalMistakes += levelMistakes;
                 break;
             }
             default:

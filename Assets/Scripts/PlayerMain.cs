@@ -14,7 +14,7 @@ public class PlayerMain : MonoBehaviour
     public GameObject playerSpawn;
     [SerializeField] int levelState = 0;
 
-    // public Animator animator;
+    public Animator animator;
     AudioManager audioManager;
 
     public void SetUp()
@@ -25,7 +25,7 @@ public class PlayerMain : MonoBehaviour
         playerInteract = GetComponent<PlayerInteract>();
         // uiManager = FindObjectOfType<UIManager>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
-        // audioManager = GetComponentInParent<AudioManager>();
+        audioManager = GetComponentInParent<AudioManager>();
     }
     void Update()
     {
@@ -34,16 +34,16 @@ public class PlayerMain : MonoBehaviour
             if(Input.GetKeyDown("space"))
             {    
                 playerMove.Jump();
-                // if(playerMove.GetPlayerVerticalVel() > 0f)
-                //     animator.SetBool("IsJumping", true);
-                // audioManager.Play("Jump");
+                if(playerMove.GetPlayerVerticalVel() > 0f)
+                    animator.SetBool("IsJumping", true);
+                audioManager.Play("Jump");
             }
 
             horizontalSpeed = Input.GetAxis("Horizontal");
             if(horizontalSpeed !=0 )
             {    
                 playerMove.Move(horizontalSpeed);
-                // animator.SetFloat("Speed", Mathf.Abs(horizontalSpeed));
+                animator.SetFloat("Speed", Mathf.Abs(horizontalSpeed));
 
                 if(horizontalSpeed > 0f && !isFacingRight)
                     FlipSprite(); 
@@ -54,8 +54,7 @@ public class PlayerMain : MonoBehaviour
             
             playerMove.VelocityDecay();
 
-            // Need to figure out how to allow for 4 separate OR cases efficiently for the 4 trucks
-            if( Input.GetKeyDown(KeyCode.A) && playerInteract.GetIsInteracting() )
+            if( Input.GetKeyDown(KeyCode.F) && playerInteract.GetIsInteracting() )
             {
                 isInteracting = playerInteract.PickUp(levelState);
                 // audioManager.Play("PickUp");
@@ -88,11 +87,11 @@ public class PlayerMain : MonoBehaviour
         // Debug.Log("Game state advanced to state: " + newLevelState);
     }
 
-    // void OnCollisionEnter2D(Collision2D col)
-    // {
-    //     if(col.contacts[0].normal == Vector2.up)
-    //     {
-    //         animator.SetBool("IsJumping", false);
-    //     }
-    // }
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.contacts[0].normal == Vector2.up)
+        {
+            animator.SetBool("IsJumping", false);
+        }
+    }
 }

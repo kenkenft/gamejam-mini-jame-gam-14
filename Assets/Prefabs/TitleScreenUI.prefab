@@ -155,7 +155,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Harvest
+  m_Text: Flagging Memory
 --- !u!1 &952238981787510874
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 952238981825455548}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48a305d68830d724f955b4381566d5b1, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e5a9aa0698238442b0fbc7779e71884, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &952238981847584680
@@ -1104,7 +1104,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Harvest
+  m_Text: Flagging Memory
 --- !u!1 &952238982723540126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1186,12 +1186,15 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Controls
 
-    - Left and Right movement: Left and Right arrows
+    - Left and Right movement: <color=#feae34>Left</color> and
+    <color=#feae34>Right</color> arrows
+
+
+    - Jump: <color=#feae34>Space</color>
+
 
     -
-    Jump: Space
-
-    - Harvest fruit: A, S, D, F'
+    Harvest fruit: <color=#feae34>A, S, D, F</color>'
 --- !u!1 &952238982920752386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,9 +1513,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Objectives\n- Harvest as many fruits as possible before the timer runs
-    out.\n- Points are earned for per full basket of fruit. \n  - A full basket contains
-    6 pieces of fruit."
+  m_Text: 'Objectives
+
+    - <color=#feae34>Raise</color> the flags and get the <color=#feae34>Trophy</color>
+
+
+    -
+    Then lower the flags in the <color=#feae34>Reverse</color> order that you collected
+    them in'
 --- !u!1 &952238983196324922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,13 +1602,12 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Advice
 
-    - Bonus points are awarded when a basket contains fewer types
-    of fruit.
+    - Take your time when deciding the order to raise the flags.
 
-    - Delivering a basket of one type of fruit reqards you with more
-    time.
 
-    - More types of fruit are gradually added over time.'
+    -
+    Points are <color=#feae34>lost </color> when attempting to lower the <color=#feae34>wrong
+    </color>flag.'
 --- !u!1 &952238983360909524
 GameObject:
   m_ObjectHideFlags: 0
@@ -1654,7 +1661,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 0
+    m_Left: 30
     m_Right: 30
     m_Top: 30
     m_Bottom: 30
