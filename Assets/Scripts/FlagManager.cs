@@ -22,7 +22,7 @@ public class FlagManager : MonoBehaviour
         gameManager = GetComponentInParent<GameManager>();
         totalFlags = flagsPositions.Length;
 
-        int[] pointValuesStart = levelProperties.GetLevelFlagsPoints(0);
+        int[] pointValuesStart = levelProperties.GetLevelFlagsPoints(gameDataProperties.GetGameData("targetStageID"));
         
         for(int i = 0; i < totalFlags; i++)
         {

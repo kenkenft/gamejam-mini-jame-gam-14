@@ -13549,6 +13549,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6154411404473784981, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: targetScene
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8664270777169946625, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

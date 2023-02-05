@@ -17,7 +17,9 @@ public class UIManager : MonoBehaviour
     
     public void SetUpUIRefs(GameDataProperties instance)
     {
+        
         gameDataProperties = instance;
+        gameDataProperties.UpdateGameData(SceneManager.GetActiveScene().buildIndex, "targetStageID");
         uIEndLevel = GetComponentInChildren<UIEndLevel>();
         if(uIEndLevel != null)
         {

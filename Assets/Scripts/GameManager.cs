@@ -18,20 +18,30 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         playerMain = GetComponentInChildren<PlayerMain>();
-        playerMain.SetUp();
-        playerMain.SetIsPlaying(true);
+        if(playerMain != null)
+        {
+            playerMain.SetUp();
+            playerMain.SetIsPlaying(true);
+        }
 
         timer = gameObject.GetComponent<Timer>();
-        StartCoroutine(timer.StartTimer());
+        if(timer != null)
+            StartCoroutine(timer.StartTimer());
 
-        flagManager = GetComponentInChildren<FlagManager>();
-        flagManager.SetUp(gameDataProperties);
 
         exitProperties = GetComponentInChildren<ExitProperties>();
-        exitProperties.SetUp();
+        if(exitProperties != null)
+            exitProperties.SetUp();
 
         uIManager = GetComponentInChildren<UIManager>();
-        uIManager.SetUpUIRefs(gameDataProperties);
+        if(uIManager != null)
+            uIManager.SetUpUIRefs(gameDataProperties);
+        
+
+        flagManager = GetComponentInChildren<FlagManager>();
+        if(flagManager != null)
+            flagManager.SetUp(gameDataProperties);
+        
         // uIManager.ReturnToTitle();
     }
 
