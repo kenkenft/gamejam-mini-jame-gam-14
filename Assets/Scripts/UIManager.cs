@@ -67,7 +67,7 @@ public class UIManager : MonoBehaviour
         uIEndgame.SetPlayerScoreText(0);
         playerOverlay.TogglePlayerOverlayCanvas(true);
         playerOverlay.ResetOverlay();
-        playerOverlay.StartTimer(startTime);
+        // playerOverlay.StartTimer(startTime);
         audioManager.Play("ButtonClick");
 
     }

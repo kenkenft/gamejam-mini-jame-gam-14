@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerOverlay : MonoBehaviour
 {
     // ScoreTextProperties scoreTextProperties;
-    Timer timer;
+    // Timer timer;
     Text levelScoreText;
     Canvas playerOverlayCanvas;
     bool isAdding = false;
@@ -25,9 +25,7 @@ public class PlayerOverlay : MonoBehaviour
         }
         
         // scoreTextProperties = GetComponentInChildren<ScoreTextProperties>();
-        timer = GetComponentInChildren<Timer>();
-        
-        
+        // timer = GetComponentInChildren<Timer>();
         // audioManager = GetComponentInParent<AudioManager>();
 
     }
@@ -36,7 +34,7 @@ public class PlayerOverlay : MonoBehaviour
     {
         // scoreTextProperties.ResetScore();
         levelScoreText.text = "Score: 0";
-        timer.ResetTotalTime();
+        // timer.ResetTotalTime();
     }
 
 
@@ -53,13 +51,13 @@ public class PlayerOverlay : MonoBehaviour
         playerOverlayCanvas.enabled = state;
     }
 
-    public void StartTimer(int startTime)
-    {
-        StartCoroutine(timer.Countdown(startTime));
-    }
+    // public void StartTimer(int startTime)
+    // {
+    //     StartCoroutine(timer.StartTimer());
+    // }
 
-    public int GetTotalTime()
-    {
-        return timer.GetTotalTime();
-    }
+    // public int GetTotalTime()
+    // {
+    //     return timer.GetTotalTime();
+    // }
 }

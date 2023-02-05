@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     UIManager uIManager;
     FlagManager flagManager;
     ExitProperties exitProperties;
+    Timer timer;
 
     public GameDataProperties gameDataProperties;
 
@@ -18,6 +19,9 @@ public class GameManager : MonoBehaviour
         playerMain = GetComponentInChildren<PlayerMain>();
         playerMain.SetUp();
         playerMain.SetIsPlaying(true);
+
+        timer = gameObject.GetComponent<Timer>();
+        StartCoroutine(timer.StartTimer());
 
         flagManager = GetComponentInChildren<FlagManager>();
         flagManager.SetUp(gameDataProperties);
@@ -33,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void UnlockExitZone(int exitZoneID)
     {
         exitProperties.DisableBarrier(exitZoneID);
-        Debug.Log("Unlocked ExitZone: " + exitZoneID);
+        // Debug.Log("Unlocked ExitZone: " + exitZoneID);
     }
 
     public void AdvanceGameState()
@@ -55,7 +59,8 @@ public class GameManager : MonoBehaviour
 
     public void TriggerEndLevel()
     {
-        Debug.Log("EndLevel Tirggered!");
+        Debug.Log("EndLevel Triggered!");
+        gameDataProperties.UpdateGameData(timer.GetTotalTime(), "levelTime");
         gameDataProperties.UpdateGameData(0, "totalScore");
         gameDataProperties.UpdateGameData(0, "totalMistakes");
         gameDataProperties.UpdateGameData(0, "totalTime");

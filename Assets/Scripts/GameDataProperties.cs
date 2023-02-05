@@ -63,6 +63,7 @@ public class GameDataProperties : ScriptableObject
             case "levelTime":
             {
                 levelTime += value;
+                Debug.Log("levelTime updated: " + levelTime);
                 break;
             }
             case "totalTime":
