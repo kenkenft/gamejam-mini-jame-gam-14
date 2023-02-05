@@ -40,7 +40,7 @@ public class FlagProperties : MonoBehaviour
         bool isCorrect = false;
         if(!isPickedUp && levelState == 0)
         {
-            Debug.Log("isPickedUp && levelState == 0");
+            // Debug.Log("isPickedUp && levelState == 0");
             flagManager.RecordFlagOrder(flagID);
             RaiseFlagSprite(true);
             isPickedUp = isRaised;
@@ -48,7 +48,7 @@ public class FlagProperties : MonoBehaviour
         }
         else if((isPickedUp && levelState == 1))
         {
-            Debug.Log("!isPickedUp && levelState == 1");
+            // Debug.Log("!isPickedUp && levelState == 1");
             isCorrect = flagManager.CheckReverseOrder(flagID);
             if(isCorrect)
             {    

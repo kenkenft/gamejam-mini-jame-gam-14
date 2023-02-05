@@ -90,7 +90,7 @@ public class PlayerMain : MonoBehaviour
     public void SetLevelState(int newLevelState)
     {
         levelState = newLevelState;
-        Debug.Log("Game state advanced to state: " + newLevelState);
+        // Debug.Log("Game state advanced to state: " + newLevelState);
     }
 
     // void OnCollisionEnter2D(Collision2D col)

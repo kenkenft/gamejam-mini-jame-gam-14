@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class FlagManager : MonoBehaviour
 {
@@ -8,14 +9,22 @@ public class FlagManager : MonoBehaviour
     public Transform[] flagsPositions;
     FlagProperties flagProperties;
     GameManager gameManager;
+    LevelProperties levelProperties;
     [SerializeField] List<int> collectedFlagSequence = new List<int>{};
-    int totalFlags = 0, leftToCheck = 0;
-    int[] pointValuesStart = {100, 200, 300, 400, 500, 600, 700};
+    int totalFlags = 0;
+    // int[] pointValuesStart;
 
     public void SetUp()
     {
+        levelProperties = new LevelProperties();
         gameManager = GetComponentInParent<GameManager>();
         totalFlags = flagsPositions.Length;
+
+        int[] pointValuesStart = levelProperties.GetLevelFlagsPoints(0);
+        foreach(int point in pointValuesStart)
+        {
+            Debug.Log(point);
+        }
         for(int i = 0; i < totalFlags; i++)
         {
             GameObject flagInstance = Instantiate(flagPrefab, flagsPositions[i].position, flagsPositions[i].rotation, flagsPositions[i]);
@@ -23,7 +32,6 @@ public class FlagManager : MonoBehaviour
             flagProperties = flagInstance.GetComponent<FlagProperties>();
             flagProperties.SetUp(i, pointValuesStart[i]);
             flagProperties.SetFlagManager(this);
-            // flagInfoList.Add(fruitInfoInstance);
         }
 
         
@@ -44,11 +52,11 @@ public class FlagManager : MonoBehaviour
             if(totalFlags <= 0)
                 gameManager.UnlockExitZone(1);
 
-            Debug.Log("Correct flag picked up!");
+            // Debug.Log("Correct flag picked up!");
             return true;
         }
 
-        Debug.Log("Wrong flag picked up! Pick up flag: " + collectedFlagSequence[totalFlags - 1]);
+        // Debug.Log("Wrong flag picked up! Pick up flag: " + collectedFlagSequence[totalFlags - 1]);
         return false;
     }
 }

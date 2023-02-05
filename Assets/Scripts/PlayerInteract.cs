@@ -60,7 +60,7 @@ public class PlayerInteract : MonoBehaviour
 
             case("Exit00"):
             {
-                Debug.Log("Exit00 entered!");
+                // Debug.Log("Exit00 entered!");
                 gameObject.GetComponent<PlayerMain>().SetLevelState(1);
                 col.gameObject.SetActive(false);
                 break;
@@ -68,7 +68,7 @@ public class PlayerInteract : MonoBehaviour
 
             case("Exit01"):
             {
-                Debug.Log("Exit01 entered!");
+                // Debug.Log("Exit01 entered!");
                 gameObject.GetComponentInParent<GameManager>().TriggerEndLevel();
                 break;
             }
