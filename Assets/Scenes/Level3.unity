@@ -20500,6 +20500,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1992191524}
     m_Modifications:
+    - target: {fileID: 297760519044746481, guid: 11addf19daae5f04bb31ce448078f7e8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 20bc2630996f1dd47b96b7662be12801, type: 2}
     - target: {fileID: 7163763691353767552, guid: 11addf19daae5f04bb31ce448078f7e8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -20709,7 +20713,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f2f29b9acd114e47ab72528393f7e77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sounds: []
+  sounds:
+  - name: Jump
+    clip: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+  - name: Endgame
+    clip: {fileID: 8300000, guid: 7478151cf36724a7dada558f746c3633, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+  - name: ButtonClick
+    clip: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+  - name: Interact
+    clip: {fileID: 8300000, guid: 130a177e727814a2ea78a886ab72213d, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
+  - name: Wrong
+    clip: {fileID: 8300000, guid: df729d213c4be44a9b55cd109f5cd4f9, type: 3}
+    source: {fileID: 0}
+    volume: 1
+    pitch: 1
 --- !u!114 &1992191523
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31890,6 +31919,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1992191524}
     m_Modifications:
+    - target: {fileID: 1418310130323610398, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130323610398, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130323610398, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 860
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130323610398, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130338230120, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130338230120, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130338230120, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130338230120, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130527697850, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130527697850, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130527697850, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 520
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310130527697850, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1418310131628149401, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2882446257657901696, guid: cfe7d70254127bc44a7758a952cc0deb, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

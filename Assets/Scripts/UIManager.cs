@@ -70,7 +70,7 @@ public class UIManager : MonoBehaviour
         audioManager.Play("Endgame");
     }
 
-    public void SetUpGameUI(int startTime)
+    public void SetUpGameUI()
     {
         uITitle.DisableTitleCanvases();
         uITitle.ToggleButtonEnabled(false);
@@ -85,11 +85,14 @@ public class UIManager : MonoBehaviour
 
     public void ReturnToTitle()
     {
-        playerOverlay.TogglePlayerOverlayCanvas(false);
-        uIEndgame.ToggleEndgameCanvas(false);
-        uITitle.SwitchTitleInstructionScreens();
-        uITitle.ToggleButtonEnabled(true);
-        audioManager.Play("ButtonClick");
+        if(uITitle != null)
+        {
+            // playerOverlay.TogglePlayerOverlayCanvas(false);
+            // uIEndgame.ToggleEndgameCanvas(false);
+            uITitle.SwitchTitleInstructionScreens();
+            uITitle.ToggleButtonEnabled(true);
+            audioManager.Play("ButtonClick");
+        }
     }
 
     public void SwitchTitleScreens()

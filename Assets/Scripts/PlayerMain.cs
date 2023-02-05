@@ -25,6 +25,7 @@ public class PlayerMain : MonoBehaviour
         playerInteract = GetComponent<PlayerInteract>();
         // uiManager = FindObjectOfType<UIManager>();
         playerSpriteRenderer = GetComponent<SpriteRenderer>();
+        SetPlayerStartPos();
         audioManager = GetComponentInParent<AudioManager>();
     }
     void Update()

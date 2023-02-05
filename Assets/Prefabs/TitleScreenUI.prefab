@@ -1194,7 +1194,7 @@ MonoBehaviour:
 
 
     -
-    Harvest fruit: <color=#feae34>A, S, D, F</color>'
+    Interact with flag: <color=#feae34>A, S, D, F</color>'
 --- !u!1 &952238982920752386
 GameObject:
   m_ObjectHideFlags: 0

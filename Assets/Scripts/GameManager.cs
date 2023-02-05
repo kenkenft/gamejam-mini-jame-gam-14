@@ -35,14 +35,15 @@ public class GameManager : MonoBehaviour
 
         uIManager = GetComponentInChildren<UIManager>();
         if(uIManager != null)
-            uIManager.SetUpUIRefs(gameDataProperties);
+            {uIManager.SetUpUIRefs(gameDataProperties);
+            uIManager.ReturnToTitle();}
         
 
         flagManager = GetComponentInChildren<FlagManager>();
         if(flagManager != null)
             flagManager.SetUp(gameDataProperties);
         
-        uIManager.ReturnToTitle();
+        
     }
 
     public void UnlockExitZone(int exitZoneID)
@@ -69,9 +70,9 @@ public class GameManager : MonoBehaviour
 
     public void SetUpGame()
     {
-        playerMain.SetIsPlaying(true);
-        playerMain.SetPlayerStartPos();
-        uIManager.SetUpGameUI(200);
+        // playerMain.SetIsPlaying(true);
+        // playerMain.SetPlayerStartPos();
+        uIManager.SetUpGameUI();
     }
 
     public void TriggerEndLevel()
