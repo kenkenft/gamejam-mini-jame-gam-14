@@ -53,6 +53,8 @@
      <Compile Include="Assets\Scripts\FlagPoolProperties.cs" />
      <Compile Include="Assets\Scripts\ExitProperties.cs" />
      <Compile Include="Assets\Scripts\LevelProperties.cs" />
+     <Compile Include="Assets\Scripts\PlayerProperties.cs" />
+     <Compile Include="Assets\Scripts\GameDataProperties.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2021.3.16f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>

@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     FlagManager flagManager;
     ExitProperties exitProperties;
 
+    public GameDataProperties gameDataProperties;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +20,7 @@ public class GameManager : MonoBehaviour
         playerMain.SetIsPlaying(true);
 
         flagManager = GetComponentInChildren<FlagManager>();
-        flagManager.SetUp();
+        flagManager.SetUp(gameDataProperties);
 
         exitProperties = GetComponentInChildren<ExitProperties>();
         exitProperties.SetUp();

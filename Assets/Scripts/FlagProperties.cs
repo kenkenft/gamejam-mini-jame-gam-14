@@ -43,6 +43,8 @@ public class FlagProperties : MonoBehaviour
             // Debug.Log("isPickedUp && levelState == 0");
             flagManager.RecordFlagOrder(flagID);
             RaiseFlagSprite(true);
+            flagManager.ModifyScore(pointValue);
+
             isPickedUp = isRaised;
 
         }
@@ -54,6 +56,10 @@ public class FlagProperties : MonoBehaviour
             {    
                 RaiseFlagSprite(false);
                 isPickedUp = isRaised;
+            }
+            else
+            {
+                flagManager.ModifyScore(-1 * pointValue);
             }
         }
     }

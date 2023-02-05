@@ -9,22 +9,21 @@ public class FlagManager : MonoBehaviour
     public Transform[] flagsPositions;
     FlagProperties flagProperties;
     GameManager gameManager;
+    GameDataProperties gameDataProperties;
     LevelProperties levelProperties;
     [SerializeField] List<int> collectedFlagSequence = new List<int>{};
     int totalFlags = 0;
     // int[] pointValuesStart;
 
-    public void SetUp()
+    public void SetUp(GameDataProperties instance)
     {
+        gameDataProperties = instance;
         levelProperties = new LevelProperties();
         gameManager = GetComponentInParent<GameManager>();
         totalFlags = flagsPositions.Length;
 
         int[] pointValuesStart = levelProperties.GetLevelFlagsPoints(0);
-        foreach(int point in pointValuesStart)
-        {
-            Debug.Log(point);
-        }
+        
         for(int i = 0; i < totalFlags; i++)
         {
             GameObject flagInstance = Instantiate(flagPrefab, flagsPositions[i].position, flagsPositions[i].rotation, flagsPositions[i]);
@@ -58,5 +57,10 @@ public class FlagManager : MonoBehaviour
 
         // Debug.Log("Wrong flag picked up! Pick up flag: " + collectedFlagSequence[totalFlags - 1]);
         return false;
+    }
+
+    public void ModifyScore(int pointValue)
+    {
+        gameDataProperties.SetPlayerScore(pointValue);
     }
 }
