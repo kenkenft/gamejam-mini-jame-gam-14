@@ -2104,6 +2104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69a5bc7cf08c18a41b296bbe6824a770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  groundStateZero: {fileID: 2056715722}
   gameDataProperties: {fileID: 11400000, guid: 0166e3e647367f642a264198ced6234f, type: 2}
 --- !u!4 &1992191524
 Transform:
@@ -2141,6 +2142,11 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7163763691353767559, guid: 11addf19daae5f04bb31ce448078f7e8, type: 3}
   m_PrefabInstance: {fileID: 1101429864}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2056715722 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3607286467801910139, guid: 370f7b4bc83492b48b6a5c3256f0e6df, type: 3}
+  m_PrefabInstance: {fileID: 751960834009834113}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &751960834009834113
 PrefabInstance:

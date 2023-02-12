@@ -9,6 +9,9 @@ public class FlagProperties : MonoBehaviour
     public int flagID, pointValue;
     GameObject flagMain;
     public FlagManager flagManager;
+    public GameObject[] flagNumberSpritePos;
+
+    public Sprite[] flagNumberSprites;
     Vector3 flagPosMask = new Vector3(0.27f,0f,0f);
     AudioManager audioManager;
 
@@ -29,6 +32,7 @@ public class FlagProperties : MonoBehaviour
                 break;
             }
         }
+        UpdateFlagPointTextSprites();
         audioManager = GetComponentInParent<AudioManager>();
     }
 
@@ -45,7 +49,7 @@ public class FlagProperties : MonoBehaviour
             // Debug.Log("isPickedUp && levelState == 0");
             flagManager.RecordFlagOrder(flagID);
             RaiseFlagSprite(true);
-            flagManager.ModifyScore(pointValue);
+            flagManager.ModifyScore(pointValue * 10);
 
             isPickedUp = isRaised;
             audioManager.Play("Interact");
@@ -63,7 +67,7 @@ public class FlagProperties : MonoBehaviour
             }
             else
             {
-                flagManager.ModifyScore(-1 * pointValue);
+                flagManager.ModifyScore(pointValue * -10);
                 audioManager.Play("Wrong");
             }
         }
@@ -87,6 +91,16 @@ public class FlagProperties : MonoBehaviour
     public void SetFlagManager(FlagManager instance)
     {
         flagManager = instance;
+    }
+
+    public void UpdateFlagPointTextSprites()
+    {
+        int tempInt = 0;
+        tempInt = pointValue % 10;
+        flagNumberSpritePos[1].GetComponent<SpriteRenderer>().sprite = flagNumberSprites[tempInt];
+
+        tempInt = pointValue / 10;
+        flagNumberSpritePos[0].GetComponent<SpriteRenderer>().sprite = flagNumberSprites[tempInt];
     }
 
 }
