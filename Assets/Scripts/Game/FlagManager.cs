@@ -8,7 +8,7 @@ public class FlagManager : MonoBehaviour
     public GameObject flagPrefab;
     public Transform[] flagsPositions;
     FlagProperties flagProperties;
-    GameManager gameManager;
+    // GameManager gameManager;
     GameDataProperties gameDataProperties;
     LevelProperties levelProperties;
     [SerializeField] List<int> collectedFlagSequence = new List<int>{};
@@ -19,7 +19,7 @@ public class FlagManager : MonoBehaviour
     {
         gameDataProperties = instance;
         levelProperties = new LevelProperties();
-        gameManager = GetComponentInParent<GameManager>();
+        // gameManager = GetComponentInParent<GameManager>();
         totalFlags = flagsPositions.Length;
 
         int[] pointValuesStart = levelProperties.GetLevelFlagsPoints(gameDataProperties.GetGameData("targetStageID"));
@@ -40,7 +40,8 @@ public class FlagManager : MonoBehaviour
     {
         collectedFlagSequence.Add(flagID);
         if(collectedFlagSequence.Count >= totalFlags)
-            gameManager.UnlockExitZone(0);
+            gameObject.SendMessageUpwards("UnlockExitZone", 0, SendMessageOptions.RequireReceiver);
+            // gameManager.UnlockExitZone(0);
     }
 
     public bool CheckReverseOrder(int flagID)
@@ -49,7 +50,8 @@ public class FlagManager : MonoBehaviour
         {
             totalFlags--;
             if(totalFlags <= 0)
-                gameManager.UnlockExitZone(1);
+            gameObject.SendMessageUpwards("UnlockExitZone", 1);
+                // gameManager.UnlockExitZone(1);
 
             // Debug.Log("Correct flag picked up!");
             return true;
@@ -62,6 +64,7 @@ public class FlagManager : MonoBehaviour
     public void ModifyScore(int pointValue)
     {
         gameDataProperties.UpdateGameData(pointValue, "levelScore");
-        gameManager.UpdatePlayerOverlay();
+        gameObject.SendMessageUpwards("UpdatePlayerOverlay");
+        // gameManager.UpdatePlayerOverlay();
     }
 }

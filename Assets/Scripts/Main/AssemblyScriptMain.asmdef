@@ -1,0 +1,19 @@
+{
+    "name": "AssemblyScriptMain",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b39dd435fa45fb749b8a838716826649",
+        "GUID:39e566532777abd4c9c7095c2e4d9606",
+        "GUID:2b1a0623b8da3de4ba54f57bac7ff0ce",
+        "GUID:c995ee4bb66c96e48a2508bcad9a34d2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

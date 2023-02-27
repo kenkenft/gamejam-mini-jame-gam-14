@@ -1,0 +1,17 @@
+{
+    "name": "AssemblyUI",
+    "rootNamespace": "",
+    "references": [
+        "GUID:c111903f7196d1c41ba4b8ee4a032968",
+        "GUID:b39dd435fa45fb749b8a838716826649"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

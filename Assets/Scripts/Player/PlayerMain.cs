@@ -6,7 +6,7 @@ public class PlayerMain : MonoBehaviour
 {
     bool isInteracting = false,isPaused = false, isPlaying = false, isFacingRight = true;
     PlayerMove playerMove;
-    UIManager uiManager;
+    // UIManager uiManager;
     PlayerInteract playerInteract;
     Vector3 playerStartPos = new Vector3(1f, -4.5f, 1f);
     SpriteRenderer playerSpriteRenderer;
@@ -58,7 +58,7 @@ public class PlayerMain : MonoBehaviour
             if( Input.GetKeyDown(KeyCode.F) && playerInteract.GetIsInteracting() )
             {
                 isInteracting = playerInteract.PickUp(levelState);
-                // audioManager.Play("PickUp");
+                // audioManager.Play("Interact");
             }
         }
     }

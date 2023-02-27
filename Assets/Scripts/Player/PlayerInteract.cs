@@ -6,7 +6,8 @@ public class PlayerInteract : MonoBehaviour
 {
     bool isInteracting = false;
     public float pickUpCooldown = 0.3f, lastSuccessfulPressTime = 0f, currButtonPressTime = 0f;
-    FlagProperties targetFlag;
+    // FlagProperties targetFlag;
+    GameObject targetFlag;
 
     public bool PickUp(int levelState)
     {
@@ -18,11 +19,14 @@ public class PlayerInteract : MonoBehaviour
             if((currButtonPressTime - lastSuccessfulPressTime > pickUpCooldown))
             {
                 lastSuccessfulPressTime = currButtonPressTime;
-                if(levelState == 0 && !targetFlag.GetIsPickedUp())
-                    targetFlag.SetIsPickedUp(true, levelState);
-                else if(levelState == 1 && targetFlag.GetIsPickedUp())
-                    targetFlag.SetIsPickedUp(false, levelState);
-                    
+                // if(levelState == 0 && !targetFlag.GetComponentInParent<FlagProperties>().GetIsPickedUp())
+                //     targetFlag.GetComponentInParent<FlagProperties>().SetIsPickedUp(true, levelState);
+                // else if(levelState == 1 && targetFlag.GetComponentInParent<FlagProperties>().GetIsPickedUp())
+                //     targetFlag.GetComponentInParent<FlagProperties>().SetIsPickedUp(false, levelState);
+                
+                // targetFlag.gameObject.SendMessage("CheckWhichActionToDo", levelState);
+                targetFlag.SendMessage("CheckWhichActionToDo", levelState);
+                
                 return true;
             }
         }
@@ -46,7 +50,9 @@ public class PlayerInteract : MonoBehaviour
             case("Flag"):
             {
                 isInteracting = true;
-                targetFlag = col.GetComponentInParent<FlagProperties>();
+                // Debug.Log("isInteracting: " + isInteracting);
+                // targetFlag = col.GetComponentInParent<FlagProperties>();
+                targetFlag = col.gameObject;
                 break;
             }
 
@@ -54,13 +60,15 @@ public class PlayerInteract : MonoBehaviour
             {
                 gameObject.GetComponent<PlayerMain>().SetLevelState(1);
                 // col.gameObject.SetActive(false);
-                gameObject.GetComponentInParent<GameManager>().DisableGroundStateZero();
+                // gameObject.GetComponentInParent<GameManager>().DisableGroundStateZero();
+                gameObject.SendMessageUpwards("DisableGroundStateZero");
                 break;
             }
 
             case("Exit01"):
             {
-                gameObject.GetComponentInParent<GameManager>().TriggerEndLevel();
+                // gameObject.GetComponentInParent<GameManager>().TriggerEndLevel();
+                gameObject.SendMessageUpwards("TriggerEndLevel");
                 break;
             }
 
@@ -74,6 +82,7 @@ public class PlayerInteract : MonoBehaviour
         if(col.gameObject.tag == "Flag")
         {
             isInteracting = false;
+            // Debug.Log("isInteracting: " + isInteracting);
             targetFlag = null;
         }
     }

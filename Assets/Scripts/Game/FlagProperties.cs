@@ -103,4 +103,13 @@ public class FlagProperties : MonoBehaviour
         flagNumberSpritePos[0].GetComponent<SpriteRenderer>().sprite = flagNumberSprites[tempInt];
     }
 
+    public void CheckWhichActionToDo(int levelState)
+    {
+        // Debug.Log("FlagProperties.CheckWhichActionToDo called. levelState: " + levelState);
+        if(levelState == 0 && !GetIsPickedUp())
+            SetIsPickedUp(true, levelState);
+        else if(levelState == 1 && GetIsPickedUp())
+            SetIsPickedUp(false, levelState);
+    }
+
 }
